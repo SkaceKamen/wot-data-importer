@@ -43,9 +43,7 @@ final class mysqler
         fwrite($f,$text."\r\n");
         fclose($f);*/
     }
-
-
-
+    
 	public function connectWithoutPort($db_host,$db_user,$db_pass,$db_name,$db_charset=NULL){
 		return $this->connect($db_host,'3306',$db_pass,$db_pass,$db_name,$db_charset);
 		
@@ -141,8 +139,7 @@ final class mysqler
         }
         return true;
     }
-
-
+    
     /*
 	 * Creates a new PDOStatement using the PDO Prepare call
 	 * 
