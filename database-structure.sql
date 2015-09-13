@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `wot`.`wot_tanks` (
   `level` INT(11) NULL DEFAULT NULL,
   `nation` ENUM('germany','ussr','usa','china','france','uk','japan') NULL DEFAULT NULL,
   `price` INT(11) NULL DEFAULT NULL,
-  `price_gold` INT(11) NOT NULL,
+  `price_gold` INT(11) NULL,
   `secret` TINYINT(1) NULL DEFAULT NULL,
   `igr` TINYINT(1) NULL DEFAULT NULL,
   `health` INT(11) NULL DEFAULT NULL,

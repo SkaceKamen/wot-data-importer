@@ -279,7 +279,7 @@ final class mysqler
         return $this->query("UPDATE $table SET " . implode(',',$values) . " WHERE " . $where);
     }
     
-    public function insertOrUpdate($table, $where, $data)
+    public function InsertOrUpdate($table, $where, $data)
     {
         if ($this->count($this->query("SELECT * FROM $table WHERE $where LIMIT 1")) == 0)
         {
@@ -292,7 +292,7 @@ final class mysqler
             {
                 $this->update($table, $where,$data);
             }
-            return 0;
+            return -1;
         }
     }
     

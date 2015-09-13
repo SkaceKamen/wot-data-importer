@@ -7,4 +7,9 @@ define('MYSQL_USERNAME', 'WoTImportUser');
 define('MYSQL_PASSWORD', 'wargaming');
 define('MYSQL_DATABASE', 'wot');
 
+//define('LOG_LEVEL','Quiet');
+//define('LOG_LEVEL','Minimal');
+define('LOG_LEVEL','Normal');
+//define('LOG_LEVEL','Detailed');
+//define('LOG_LEVEL','Diagnostic');
 ?>

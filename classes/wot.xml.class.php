@@ -25,7 +25,7 @@ class WotXML
 	{
 		try
 		{
-			Debug::log('decodePackedFile BEGIN with $fileName = '.$filename.', $name = '.$name.', $target = '.$target.'.',LEVEL_INFO);
+			Debug::log('decodePackedFile BEGIN with $fileName = '.$filename.', $name = '.$name.', $target = '.$target.'.',LEVEL_DETAILED);
 
 			$reader = new ByteReader($filename);
 			$head = $reader->readInt32();
@@ -48,7 +48,7 @@ class WotXML
 		} 
 		finally
 		{
-			Debug::log('decodePackedFile END with $fileName = '.$filename.', $name = '.$name.', $target = '.$target.'.',LEVEL_INFO);
+			Debug::log('decodePackedFile END   with $fileName = '.$filename.', $name = '.$name.', $target = '.$target.'.',LEVEL_DETAILED);
 		}
 
 		return false;
