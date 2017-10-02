@@ -6,9 +6,9 @@ function append_simplexml(&$simplexml_to, &$simplexml_from)
 		$simplexml_temp->addAttribute($attr_key, $attr_value); 
 	}
 	
-    foreach ($simplexml_from->children() as $simplexml_child)  {
-        append_simplexml($simplexml_temp, $simplexml_child); 
-    }
+	foreach ($simplexml_from->children() as $simplexml_child)  {
+		append_simplexml($simplexml_temp, $simplexml_child); 
+	}
 }
 
 class WotXML
@@ -25,6 +25,8 @@ class WotXML
 	{
 		try
 		{
+			Debug::log('decodePackedFile BEGIN with $fileName = '.$filename.', $name = '.$name.', $target = '.$target.'.',LEVEL_DETAILED);
+
 			$reader = new ByteReader($filename);
 			$head = $reader->readInt32();
 			if ($head == PackedSection::$Packet_Header)
@@ -35,16 +37,21 @@ class WotXML
 				static::$PS->readElement($reader, $xmlNode, $list);
 				file_put_contents($target, $xmlNode->asXML());
 				return true;
-			} else {
-				return false;
-			}
-		} catch (Exception $e) {
+			} 
+		}
+		catch (Exception $e) {
 			static::$failed[] = array(
 				'filename' => $filename,
 				'exception' => $e
 			);
-			return false;
+			
+		} 
+		finally
+		{
+			Debug::log('decodePackedFile END   with $fileName = '.$filename.', $name = '.$name.', $target = '.$target.'.',LEVEL_DETAILED);
 		}
+
+		return false;
 	}
 }
 
@@ -296,7 +303,7 @@ class ByteReader
 	public function __construct($file)
 	{
 		static::$instance = $this;
-	
+		
 		$this->file = $file;
 		$this->size = filesize($file);
 		$this->handle = fopen($file, 'rb');

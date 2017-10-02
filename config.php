@@ -1,6 +1,15 @@
 <?php
-define('WOT_PATH', 'd:/Hry/World_of_Tanks_closed_Beta/'); //d:/Hry/World_of_Tanks_closed_Beta/
-define('MYSQL_HOSTNAME', '127.0.0.1');
-define('MYSQL_USERNAME', 'root');
-define('MYSQL_PASSWORD', '');
+// Todo: To be determined by the user.
+define('WOT_PATH', 'G:\\Games\\World_of_Tanks\\World_of_Tanks - 9.9 Clean\\'); 
+define('MYSQL_HOSTNAME', 'localhost');
+define('MYSQL_PORT','3306');
+define('MYSQL_USERNAME', 'WoTImportUser');
+define('MYSQL_PASSWORD', 'wargaming');
 define('MYSQL_DATABASE', 'wot');
+
+//define('LOG_LEVEL','Quiet');
+//define('LOG_LEVEL','Minimal');
+define('LOG_LEVEL','Normal');
+//define('LOG_LEVEL','Detailed');
+//define('LOG_LEVEL','Diagnostic');
+?>

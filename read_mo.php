@@ -4,21 +4,21 @@ function read_mo($filename)
 	/**
 	 * read header from file
 	 */
-   
+	
 
 	$file = fopen( $filename, 'r' );
 	if ( !$file )
-  {
-    echo "Failed to open";
+	{
+		echo "Failed to open";
 		return false;
-  }
+	}
 
 	$header = fread( $file, 28 );
 	if ( strlen( $header ) != 28 )
-  {
-    echo "Wrong header";
+	{
+		echo "Wrong header";
 		return false;
-  }
+	}
 
 	// detect endianess
 	$endian = unpack( 'Nendian', substr( $header, 0, 4 ) );
@@ -27,10 +27,10 @@ function read_mo($filename)
 	else if ( $endian['endian'] == intval( hexdec( 'de120495' ) ) )
 		$endian = 'V';
 	else
-  {
-    echo "Wrong endian";
+	{
+		echo "Wrong endian";
 		return false;
-  }
+	}
 
 	// parse header
 	$header  = unpack( "{$endian}Hrevision/{$endian}Hcount/{$endian}HposOriginals/{$endian}HposTranslations/{$endian}HsizeHash/{$endian}HposHash", substr( $header, 4 ) );
@@ -168,13 +168,13 @@ function read_mo($filename)
 									   : "$context\04$singularFrom";
 
 
-      $list[$singularFrom] = $singularTo;
+			$list[$singularFrom] = $singularTo;
 
 			$hash[$key] = $record;
 
 		}
 	}
 
-  return $list;
+	return $list;
 }
 ?>
